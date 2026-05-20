@@ -1,0 +1,312 @@
+/* ===== CSS VARIABLES ===== */
+:root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --surface2: #1a1e2a;
+    --border: #252a38;
+    --accent: #4f7cff;
+    --accent-hover: #3b66e8;
+    --accent-glow: rgba(79, 124, 255, 0.18);
+    --danger: #ff4f6a;
+    --danger-hover: #e83b55;
+    --success: #2ecc8a;
+    --text-primary: #e8ecf4;
+    --text-secondary: #7a839a;
+    --text-muted: #454d63;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== BASE ===== */
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse 60% 40% at 70% 10%, rgba(79, 124, 255, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(46, 204, 138, 0.05) 0%, transparent 50%);
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding: 48px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* ===== LAYOUT ===== */
+.main {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+}
+
+.table-card {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-header {
+    padding: 28px 32px 0;
+}
+
+.badge {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(79, 124, 255, 0.3);
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.card-header h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    font-weight: 300;
+}
+
+/* ===== FORM ===== */
+form {
+    padding: 24px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+input[type="text"],
+input[type="number"] {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Remove number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* ===== BUTTON ===== */
+button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 13px 24px;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    width: 100%;
+    box-shadow: 0 4px 16px rgba(79, 124, 255, 0.3);
+}
+
+button[type="submit"]:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 6px 24px rgba(79, 124, 255, 0.45);
+    transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* ===== TABLE ===== */
+.table-wrapper {
+    overflow-x: auto;
+    padding: 20px 32px 32px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 16px 14px;
+    text-align: left;
+}
+
+td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr {
+    transition: background 0.15s;
+}
+
+tbody tr:hover {
+    background: var(--surface2);
+}
+
+/* ===== ACTION BUTTONS (edit/delete injected by JS) ===== */
+/* These styles target buttons JS will inject into the tbody */
+td button,
+.edit-btn,
+.delete-btn,
+button.edit,
+button.delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+/* Generic Edit style */
+td button:first-child,
+td button[onclick*="edit"],
+.edit-btn,
+button.edit {
+    background: rgba(79, 124, 255, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(79, 124, 255, 0.25);
+}
+
+td button:first-child:hover,
+td button[onclick*="edit"]:hover,
+.edit-btn:hover,
+button.edit:hover {
+    background: rgba(79, 124, 255, 0.22);
+    transform: translateY(-1px);
+}
+
+/* Generic Delete style */
+td button:last-child,
+td button[onclick*="delete"],
+.delete-btn,
+button.delete {
+    background: rgba(255, 79, 106, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(255, 79, 106, 0.22);
+    margin-left: 6px;
+}
+
+td button:last-child:hover,
+td button[onclick*="delete"]:hover,
+.delete-btn:hover,
+button.delete:hover {
+    background: rgba(255, 79, 106, 0.2);
+    transform: translateY(-1px);
+}
+
+/* SL number */
+td:first-child {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 540px) {
+    body { padding: 24px 12px; }
+    .card-header { padding: 22px 20px 0; }
+    form { padding: 20px 20px 24px; }
+    .table-wrapper { padding: 16px 20px 24px; }
+    .card-header h3 { font-size: 18px; }
+}

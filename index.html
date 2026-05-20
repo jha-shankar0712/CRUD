@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <form id="frm">
+            <h3 id="hd">CRUD OPERATION</h3>
+            <P><Label>User Name</Label><input type="text" placeholder="Enter name" id="i1"></P>
+            <P><Label>User Age</Label><input type="number" placeholder="Enter age" id="i2"></P>
+            <button type="submit" id="btn">save</button>
+        </form>
+        <h3>Data Table</h3>
+        <table border="2" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>NAME</th>
+                    <th>Age</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- data add -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+<script src="script.js"></script>
